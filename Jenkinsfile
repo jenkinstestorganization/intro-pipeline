@@ -12,22 +12,9 @@ pipeline {
         echo "Hello ${params.Name}!"
       }
     }
-    stage('get kernel') {
+    stage('Checkpoint') {
       steps {
-        script {
-          try {
-            KERNEL_VERSION = sh (script: "uname -r", returnStdout: true)
-          } catch(err) {
-            echo "CAUGHT ERROR: ${err}"
-            throw err
-          }
-        }
-
-      }
-    }
-    stage('say kenel') {
-      steps {
-        echo "${KERNEL_VERSION}"
+        checkpoint 'Checkpoint'
       }
     }
     stage('Testing') {

@@ -12,6 +12,17 @@ pipeline {
         echo "Hello ${params.Name}!"
       }
     }
+    stage('deploy') {
+      options {
+        timeout(time: 30, unit: 'SECONDS')
+      }
+      input {
+        message 'Should we continue?'
+      }
+      steps {
+        echo 'continue with deployment'
+      }
+    }
   }
   environment {
     MY_NAME = 'yogi rajala'

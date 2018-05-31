@@ -5,9 +5,12 @@ pipeline {
   stages {
     stage('say hello') {
       steps {
-        echo 'Hello World from Yogi'
+        echo 'Hello World from ${MY_NAME}'
         sh 'java -version'
       }
     }
+  }
+  environment {
+    MY_NAME = 'yogi rajala'
   }
 }

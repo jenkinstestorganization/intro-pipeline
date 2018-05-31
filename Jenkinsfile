@@ -27,7 +27,7 @@ pipeline {
     }
     stage('say kenel') {
       steps {
-        echo '"${KERNEL_VERSION}"'
+        echo "${KERNEL_VERSION}"
       }
     }
   }
